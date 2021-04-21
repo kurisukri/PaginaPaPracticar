@@ -1,2 +1,2 @@
 # ProyectoCousins
-Pagina web con html, bootstrap and css
+Pagina web con html, bootstrap & css
