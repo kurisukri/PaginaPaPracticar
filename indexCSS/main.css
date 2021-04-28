@@ -1,5 +1,3 @@
-
-
 .secciones{
     background: #ffffff;
 }
@@ -10,21 +8,22 @@
     flex-wrap: wrap; /*si pasas de %, fuera..*/
 }
 .imagen-secciones{ /*para que se empieze a ver todo el contenido*/
-    width: 24%;
+    width: 15%;
     height: 150px; /*si la imagen es muy grande, ésta es la solución*/
-    margin-bottom: 10%;
+    margin-bottom: 15%;
+    margin-top: 5%;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    cursor: -webkit-grab;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
 }
 
 .imagen-secciones > img{ /*que solo mande a img*/
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    /*object-fit: contain;*/
     display: block;
-    
+    margin: auto;
 }
 
 .hover-galeria {
@@ -53,3 +52,25 @@
     transform: scale(0.80);
     border-radius: 10px;
 }
+
+
+
+
+
+.titulo {
+    margin-left: 800px;
+}
+
+
+
+
+
+
+
+
+.carousel{
+    width: 1000px;
+    margin: auto;
+    margin-bottom: 10%;
+}
+
