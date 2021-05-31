@@ -58,3 +58,10 @@ header .textos-header{
     width: 100%;
 
 }
+
+#titulo {
+    margin-left: 37%;
+    margin-top: 150px;
+    color: rgba(247, 234, 157, 0.788);
+    font-weight: bold;
+  }
