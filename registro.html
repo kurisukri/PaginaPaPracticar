@@ -31,10 +31,23 @@
     <script>
         $(document).ready(function(){
             // ocultar div de error
-            $("#error").hide();
+            $("#errorUsuario").hide();
+            $("#errorPass").hide();
+            $("#errorCorreo").hide();
+            $("#errorDireccion").hide();
+            $("#errorTelefono").hide();
+            $("#errorPostal").hide();
             // validaciones de formulario
             $("#formulario").submit(function(){
                 // almacenar los mensajes de error
+                $("#errorUsuario").hide();
+                $("#errorPass").hide();
+                $("#errorCorreo").hide();
+                $("#errorDireccion").hide();
+                $("#errorTelefono").hide();
+                $("#errorPostal").hide();
+
+
                 var errorUsuario = "";
                 var errorPass = "";
                 var errorCorreo = "";
@@ -44,69 +57,84 @@
 
                 if($("#usuario").val().trim().length==0){
                     // validar que el usuario no este en blanco
-                    if(mensaje!=""){
-                        mensaje+="El nombre de usuario esta en blanco";
-                    } else {
-                        mensaje="El nombre de usuario esta en blanco";
-                    }
-                    
+                    errorUsuario="¡El nombre de usuario esta en blanco!";
                 }
 
                 if($("#password").val().trim().length==0){
                     // validar que la password no este en blanco
-                    if(mensaje!=""){
-                        mensaje+="\nLa contraseña esta en blanco";
-                    } else {
-                        mensaje="La contraseña esta en blanco       ";
-                    }
+                    errorPass="¡La contraseña esta en blanco!";
                     
                 }
 
                 if($("#correo").val().trim().length==0){
                     // validar que la password no este en blanco
-                    if(mensaje!=""){
-                        mensaje+="\nEl correo electrónico esta en blanco";
-                    } else {
-                        mensaje="El correo electrónico esta en blanco";
-                    }
+                   errorCorreo="¡El correo electronico esta en blanco!";
                     
                 }
 
                 if($("#direccion").val().trim().length==0){
                     // validar que la password no este en blanco
-                    if(mensaje!=""){
-                        mensaje+="\nLa dirección esta en blanco         ";
-                    } else {
-                        mensaje="La dirección esta en blanco         ";
-                    }
+                    errorDireccion="¡La dirección esta en blanco!";
                     
                 }
 
                 if($("#telefono").val().trim().length==0){
                     // validar que la password no este en blanco
-                    if(mensaje!=""){
-                        mensaje+="\nEl telefono esta en blanco          ";
-                    } else {
-                        mensaje="El telefono esta en blanco          ";
-                    }
+                    errorTelefono="¡El teléfono esta en blanco!";
                    
                 }
 
                 if($("#postal").val().trim().length==0){
                     // validar que la password no este en blanco
-                    if(mensaje!=""){
-                        mensaje+="El código postal esta en blanco    ";
-                    } else {
-                        mensaje="El código postal esta en blanco     ";
-                    }
+                    errorPostal="¡El código postal esta en blanco!"
                     
                 }
 
-                if(mensaje!=""){
-                    $("#error").html(mensaje); // mostrar el mensaje en el div de error
-                    $("#error").show(); // mostrar el div error
+                if(errorUsuario!="" || errorPass!="" || errorCorreo!="" || errorDireccion!="" || errorTelefono!="" || errorPostal!=""){
+                    
+                    $("#errorPass").html(errorPass);
+                    $("#errorCorreo").html(errorCorreo);
+                    $("#errorDireccion").html(errorDireccion);
+                    $("#errorTelefono").html(errorTelefono);
+                    $("#errorPostal").html(errorPostal);
+                }
+
+                if(errorUsuario!=""){
+                    $("#errorUsuario").html(errorUsuario); // mostrar el mensaje en el div de error
+                    $("#errorUsuario").show(); // mostrar el div error
                     event.preventDefault(); // evitar envio de datos
                 }
+
+                if(errorPass!=""){
+                    $("#errorPass").html(errorPass); // mostrar el mensaje en el div de error
+                    $("#errorPass").show(); // mostrar el div error
+                    event.preventDefault(); // evitar envio de datos
+                }
+
+                if(errorCorreo!=""){
+                    $("#errorCorreo").html(errorCorreo); // mostrar el mensaje en el div de error
+                    $("#errorCorreo").show(); // mostrar el div error
+                    event.preventDefault(); // evitar envio de datos
+                }
+
+                if(errorDireccion!=""){
+                    $("#errorDireccion").html(errorDireccion); // mostrar el mensaje en el div de error
+                    $("#errorDireccion").show(); // mostrar el div error
+                    event.preventDefault(); // evitar envio de datos
+                }
+
+                if(errorTelefono!=""){
+                    $("#errorTelefono").html(errorTelefono); // mostrar el mensaje en el div de error
+                    $("#errorTelefono").show(); // mostrar el div error
+                    event.preventDefault(); // evitar envio de datos
+                }
+
+                if(errorPostal!=""){
+                    $("#errorPostal").html(errorPostal); // mostrar el mensaje en el div de error
+                    $("#errorPostal").show(); // mostrar el div error
+                    event.preventDefault(); // evitar envio de datos
+                }
+
             });
         });
 
@@ -123,43 +151,71 @@
           <button type="button" class="btn btn-secondary">Acerca de</button>
           <button type="button" class="btn btn-secondary">Redes Sociales</button>
     </header>
-
+    <br>
     <div class="container">
             <form method="post" id="formulario">
-                
-                <!-- USUARIO -->
-                <div class="form-group">
-                    <label for="usuario">Usuario</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario">
-                </div>
-                <div id="errorUsuario" class="alert alert-danger" role="alert" ></div>
-                <!-- CONTRASEÑA -->
-                <div class="form-group">
-                    <label for="password">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <!-- CORREO ELECTRONICO -->
-                <div class="form-group">
-                    <label for="correo">Correo Electrónico</label>
-                    <input type="text" class="form-control" id="correo" name="correo">
-                </div>
-                <!-- DIRECCION -->
-                <div class="form-group">
-                    <label for="direccion">Direccion</label>
-                    <input type="text" class="form-control" id="direccion" name="direccion">
-                </div>
-                <!-- TELEFONO -->
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono">
-                </div>
-                <!-- CODIGO POSTAL -->
-                <div class="form-group">
-                    <label for="postal">Código Postal</label>
-                    <input type="text" class="form-control" id="postal" name="postal">
+                <div class="row row-cols-2">
+                    <!-- USUARIO -->
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="errorUsuario" class="alert alert-danger" role="alert" ></div>
+                    </div>
+
+                    <!-- CONTRASEÑA -->
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="errorPass" class="alert alert-danger" role="alert" ></div>
+                    </div>
+
+                    <!-- CORREO ELECTRONICO -->
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo Electrónico">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="errorCorreo" class="alert alert-danger" role="alert" ></div>
+                    </div>
+
+                    <!-- DIRECCION -->
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="errorDireccion" class="alert alert-danger" role="alert" ></div>
+                    </div>
+
+                    <!-- TELEFONO -->
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="errorTelefono" class="alert alert-danger" role="alert" ></div>
+                    </div>
+
+                    <!-- CODIGO POSTAL -->
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="postal" name="postal" placeholder="Código Postal">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="errorPostal" class="alert alert-danger" role="alert" ></div>
+                    </div>
                 </div>
 
-                
                 <input type="submit" class="btn btn-primary" id="registrar" value="Registrar">
 
             </form>
